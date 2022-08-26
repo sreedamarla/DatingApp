@@ -39,9 +39,6 @@ namespace API
         {
             app.UseMiddleware<ExceptionMiddleware>();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -55,6 +52,10 @@ namespace API
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
+            
         }
     }
 }
